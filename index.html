@@ -18,10 +18,10 @@
 </nav>
 <div class="container-xxl" style="margin-top: 80px; height: 500px">
   <div class="row align-items-center">
-    <div id="solution_graph" class="col col-xl-8 mh-100">
+    <div id="solution_graph" class="col col-xl-7 mh-100">
 
     </div>
-    <div class="col col-sm-4">
+    <div class="col col-sm-5">
       <div class="input-group mb-3">
         <span class="input-group-text" id="addon-wrapping1">x0</span>
         <input id="inputx0" type="text" class="form-control" placeholder="Initial x" aria-label="Example text with button addon" aria-describedby="button-addon1">
@@ -76,7 +76,22 @@
     </div>
   </div>
 </div>
+<div class="container-xl" style="margin-top: 80px;">
+  <div class="row align-items-center">
+    <div class="col col col-xl-6">
+      <div id="local_error_graph">
 
+      </div>
+    </div>
+    <div class="col col col-xl-6">
+      <div id="global_error_graph">
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
 </body>
 <script
         src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -92,6 +107,7 @@
 <script src="default_values.js" ></script>
 <script src="App_Manager.js" ></script>
 <script src="equation.js" ></script>
+<script src="error_analyzer.js" ></script>
 <script src="initialization.js"></script>
 <script src="validation.js" ></script>
 
