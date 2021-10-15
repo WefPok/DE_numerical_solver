@@ -30,6 +30,7 @@ function compute(){
     }
     if (document.getElementById('method3').checked){
         const str = `Method Runge Kutta with values:\nx0: ${x0}\ny0: ${y0}\nX: ${X}\nN: ${N}\n`
+        traces.push(manager.equation.getRungeKuttaTrace())
         console.log(str)
     }
     manager.redraw_graphs(traces)

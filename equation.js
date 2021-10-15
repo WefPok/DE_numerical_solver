@@ -77,7 +77,6 @@ class Equation {
         }
     }
 
-
     getImprovedEulerTrace() {
         let x_coords = [];
         let y_coords = [];
@@ -92,7 +91,7 @@ class Equation {
 
             x_prev = x_coords[i - 1]
             y_prev = y_coords[i - 1]
-            console.log(x_prev, y_prev)
+
             k1 = this.step * this.fxy(x_prev, y_prev)
             k2 = this.step * this.fxy(x_prev + this.step, y_prev + k1)
             y = y_prev + (k1 + k2)/2
@@ -117,7 +116,45 @@ class Equation {
         }
 
     }
-    getRungeKuttaTrace(){
 
+    getRungeKuttaTrace(){
+        let x_coords = [];
+        let y_coords = [];
+        let x = this.x0;
+        let y = this.y0;
+        let y_prev, x_prev, k1, k2, k3, k4;
+
+        x_coords.push(x)
+        y_coords.push(y)
+        for (let i = 1; i < this.N + 1; i++) {
+            x += this.step
+
+            x_prev = x_coords[i - 1]
+            y_prev = y_coords[i - 1]
+
+            k1 = this.step*this.fxy(x_prev, y_prev)
+            k2 = this.step*this.fxy(x_prev + this.step/2, y_prev + k1/2)
+            k3 = this.step*this.fxy(x_prev + this.step/2, y_prev + k2/2)
+            k4 = this.step*this.fxy(x_prev + this.step, y_prev + k3)
+            y = y_prev+(1/6)*(k1 + 2*k2 + 2*k3 + k4)
+
+            x_coords.push(x)
+            y_coords.push(y)
+        }
+        return {
+            name: 'Runge Kutta Numerical Solution',
+            mode: 'lines+markers',
+            x: x_coords,
+            y: y_coords,
+            type: 'scatter',
+            marker: {
+                color: '#5cb85c',
+                size: 7
+            },
+            line: {
+                color: '#5cb85c',
+                width: 3
+            }
+        }
     }
 }
