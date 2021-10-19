@@ -11,5 +11,5 @@ function defaultX(){
 }
 
 function defaultN(){
-    document.getElementById("inputN").value = 5;
+    document.getElementById("inputN").value = 10;
 }

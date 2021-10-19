@@ -28,7 +28,7 @@ function validation(){
         modal.show()
         return 4
     }
-    else if (x0 === 1 || x0 ===0){
+    else if (x0 <= 1){
         document.getElementById("modal_error_description").innerText = `Solution is undefined at point x = ${x0}`
         modal.show()
         return 5
