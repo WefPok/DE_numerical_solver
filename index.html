@@ -4,7 +4,6 @@
   <!-- Обязательные метатеги -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
   <title>DE_graphing</title>
@@ -21,7 +20,7 @@
     <div id="solution_graph" class="col col-xl-7 mh-100">
 
     </div>
-    <div class="col col-sm-5">
+    <div class="col col-xl-5">
       <div class="input-group mb-3">
         <span class="input-group-text" id="addon-wrapping1">x0</span>
         <input id="inputx0" type="text" class="form-control" placeholder="Initial x" aria-label="Example text with button addon" aria-describedby="button-addon1">
@@ -55,6 +54,18 @@
       </div>
     </div>
   </div>
+  <div class="row align-items-center">
+    <div class="col col col-xl-6">
+      <div id="local_error_graph">
+
+      </div>
+    </div>
+    <div class="col col col-xl-6">
+      <div id="global_error_graph">
+
+      </div>
+    </div>
+  </div>
 </div>
 
 
@@ -77,18 +88,7 @@
   </div>
 </div>
 <div class="container-xl" style="margin-top: 80px;">
-  <div class="row align-items-center">
-    <div class="col col col-xl-6">
-      <div id="local_error_graph">
 
-      </div>
-    </div>
-    <div class="col col col-xl-6">
-      <div id="global_error_graph">
-
-      </div>
-    </div>
-  </div>
 
 
 </div>
@@ -105,13 +105,14 @@
 ></script>
 
 <script src="default_values.js" ></script>
+<script src="Method.js" ></script>
+<script src="ExactMethod.js" ></script>
+<script src="EulerMethod.js" ></script>
+<script src="ImprovedEulerMethod.js" ></script>
+<script src="RungeKuttaMethod.js" ></script>
 <script src="App_Manager.js" ></script>
 <script src="equation.js" ></script>
-<script src="error_analyzer.js" ></script>
 <script src="initialization.js"></script>
 <script src="validation.js" ></script>
-
-<!--<script src="plotter.js"></script>-->
-<!--<script src="compute.js" ></script>-->
 
 </html>
