@@ -27,8 +27,17 @@ class Equation {
         let y = this.y0
         for (let i = 0; i < N + 1; i++) {
             y = this.fx(x + step*i)
-            x_coords.push(x + step*i)
-            y_coords.push(y)
+            if (y>10000){
+                console.log("INFINITY")
+                x_coords.push(x + step*i)
+                y_coords.push(y_coords[i-1])
+            }
+            else{
+                x_coords.push(x + step*i)
+                y_coords.push(y)
+
+            }
+
         }
 
         return {

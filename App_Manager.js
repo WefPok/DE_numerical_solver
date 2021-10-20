@@ -127,6 +127,7 @@ class App_Manager{
                 traces.push(Method.getSolution())
             }
         )
+        console.log(traces)
         this.solution_layout.title = 'Exact and Numerical Solutions'
         Plotly.newPlot('solution_graph', traces, this.solution_layout);
     }
@@ -135,10 +136,10 @@ class App_Manager{
     redraw_error(){
         const traces_local = []
         const traces_global = []
-        let error
 
         for (let method of this.methods) {
             traces_local.push(method.getLocalError())
+
             traces_global.push(method.getMaxError())
         }
         this.error_layout.title = 'Local Truncation Error'

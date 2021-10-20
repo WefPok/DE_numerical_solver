@@ -14,6 +14,7 @@ class Method {
 
     getSolution(N = this.equation.N){
         const step = (this.equation.X-this.equation.x0)/N
+        console.log(step,N, this.name)
         let x_coords = [];
         let y_coords = [];
         let x = this.equation.x0;
@@ -26,8 +27,20 @@ class Method {
             x_prev = x_coords[i-1]
             y_prev = y_coords[i-1]
             y = this.next(x_prev, y_prev, step)
-            x_coords.push(x + step*i)
-            y_coords.push(y)
+            if (x_prev - 0.05 <= 1 && x + step*i + 0.05 >= 1){
+                x_coords.push(x + step*i)
+                y_coords.push(this.equation.getSolution(N).y[i])
+                continue
+                // break
+            }
+            else{
+                x_coords.push(x + step*i)
+                y_coords.push(y)
+            }
+
+            // x_coords.push(x + step*i)
+            // y_coords.push(y)
+
         }
 
         let result = {
@@ -117,4 +130,5 @@ class Method {
             }
         }
     }
+
 }
