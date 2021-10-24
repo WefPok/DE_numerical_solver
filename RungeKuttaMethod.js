@@ -1,5 +1,4 @@
 class RungeKuttaMethod extends Method{
-
     next(x_prev, y_prev, step) {
         const k1 = step*this.equation.fxy(x_prev, y_prev)
         const k2 = step*this.equation.fxy(x_prev + step/2, y_prev + k1/2)

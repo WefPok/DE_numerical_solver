@@ -7,9 +7,9 @@ function defaulty0(){
 }
 
 function defaultX(){
-    document.getElementById("inputX").value = 12;
+    document.getElementById("inputX").value = 10;
 }
 
 function defaultN(){
-    document.getElementById("inputN").value = 10;
+    document.getElementById("inputN").value = 50;
 }

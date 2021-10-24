@@ -1,4 +1,6 @@
 class App_Manager{
+    N_start = 1;
+    N_end;
     constructor(x0, y0, X, N) {
         this._x0 = x0;
         this._y0 = y0;
@@ -102,6 +104,16 @@ class App_Manager{
         this._y0 = Number(document.getElementById("inputy0").value)
         this._X = Number(document.getElementById("inputX").value)
         this._N = Number(document.getElementById("inputN").value)
+        this.N_end = Number(document.getElementById("inputN_end").value)
+        this.N_start = Number(document.getElementById("inputN_start").value)
+        if (document.getElementById("inputN_end").value.length === 0){
+            this.N_end = this._N
+        }
+        if (document.getElementById("inputN_start").value.length === 0){
+            this.N_start = 1
+        }
+
+
         this.equation = new Equation(this._x0, this._y0, this._X, this._N)
         this.methods.length = 0
 
@@ -127,7 +139,6 @@ class App_Manager{
                 traces.push(Method.getSolution())
             }
         )
-        console.log(traces)
         this.solution_layout.title = 'Exact and Numerical Solutions'
         Plotly.newPlot('solution_graph', traces, this.solution_layout);
     }
@@ -140,7 +151,7 @@ class App_Manager{
         for (let method of this.methods) {
             traces_local.push(method.getLocalError())
 
-            traces_global.push(method.getMaxError())
+            traces_global.push(method.getMaxError(this.N_start, this.N_end))
         }
         this.error_layout.title = 'Local Truncation Error'
         Plotly.newPlot('local_error_graph', traces_local, this.error_layout)

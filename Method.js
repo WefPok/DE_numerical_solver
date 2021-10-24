@@ -14,7 +14,6 @@ class Method {
 
     getSolution(N = this.equation.N){
         const step = (this.equation.X-this.equation.x0)/N
-        console.log(step,N, this.name)
         let x_coords = [];
         let y_coords = [];
         let x = this.equation.x0;
@@ -91,12 +90,12 @@ class Method {
         }
     }
 
-    getMaxError(){
+    getMaxError(N_start, N_end){
         let difference = this.equation.X - this.equation.x0
         let nexact, napproximate, max
         const max_errorsX = []
         const max_errorsY = []
-        for (let n = 1; n < this.equation.N+1; n++) {
+        for (let n = N_start; n < N_end+1; n++) {
             if (difference/n > 1){
                 continue
             }
